@@ -1,0 +1,21 @@
+﻿@model Student
+<h1 class="text-center">Delete Student</h1>
+<form method="post"asp-controller="Student" asp-action="DeletePOST" class="form-group p-5">
+    <input asp-for="Id" hidden />
+    <div class="mb-3">
+        <label asp-for="FirstName" class="form-label"></label>
+        <input asp-for="FirstName" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="LastName" class="form-label"></label>
+        <input asp-for="LastName" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="batch" class="form-label"></label>
+        <input asp-for="batch" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-info form-control">Delete</button>
+
+
+
+</form>

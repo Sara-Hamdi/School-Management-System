@@ -1,0 +1,28 @@
+﻿@model Student
+<h1 class="p-5 text-center">Add A New Student</h1>
+<form method="post" class="form-group">
+    <div class="mb-3">
+    <label class="form-label" asp-for="FirstName"></label>
+    <input asp-for="FirstName" class="form-control" />
+    </div>
+    <div class="mb-3">
+    <label asp-for="LastName" class="form-label"></label>
+    <input asp-for="LastName" class="form-control"/>
+    </div>
+    <div class="mb-3">
+    <label asp-for="PhoneNumber" class="form-label"></label>
+    <input asp-for="PhoneNumber" class="form-control"/>
+    </div>
+    <div class="mb-3">
+    <label asp-for="DateOfBirth" class="form-label"></label>
+     <input asp-for="DateOfBirth" class="form-control"/>
+    </div>
+    <div class="mb-3">
+        <label asp-for="batch" class="form-label"></label>
+        <input asp-for="batch" class="form-control"/>
+
+
+    </div>
+     <button type="submit" class="btn btn-primary form-control">Add</button>
+</form>
+

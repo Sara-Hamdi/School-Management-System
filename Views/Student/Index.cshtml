@@ -1,0 +1,72 @@
+﻿@model List<Student>
+
+<div>
+
+<a asp-controller="Student" asp-action="Create" class="btn btn-outline-success text-lg-end">Add New Student</a>
+    <label>Batch</label>
+
+    <select id="batches">
+        <option value="volvo">2018</option>
+        <option value="saab">2019</option>
+        <option value="mercedes">2020</option>
+        <option value="audi">2021</option>
+    </select>
+</div>
+<h1 class="text-center">Students</h1>
+<div class="container">
+  <table class="table">
+      <thead>
+        <tr class="d-xl-table-row">
+          <th>
+               First Name
+          </th>
+          <th>
+               Last Name
+            </th>
+          <th>
+              Phone Number
+          </th>
+          <th>
+             Date Of Birth
+          </th>
+          <th>
+              Batch
+          </th>
+          <th>
+
+          </th>
+        <th>
+
+        </th>
+        
+          </tr>
+     </thead>
+     <tbody>
+         
+        @foreach(var student in Model)
+        {
+
+                <tr class="d-xl-table-row">
+                <td>@student.FirstName</td>
+                <td>@student.LastName</td>
+                <td>@student.PhoneNumber</td>
+                <td>@student.DateOfBirth</td>
+                <td>@student.batch</td>
+                <td>
+                    <a class="btn btn-success">Edit</a>
+                    <a class="btn btn-danger" asp-controller="Student" asp-action="Delete" asp-route-Id="@student.Id">Delete</a>
+                </td>
+                
+               
+            </tr>
+             
+              
+            
+        }
+       
+   </tbody>
+</table>
+
+
+</div>
+

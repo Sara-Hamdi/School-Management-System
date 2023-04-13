@@ -1,0 +1,38 @@
+﻿@{
+    Layout = null;
+}
+@model UserAccount
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - School</title>
+    <link rel="stylesheet" href="~/css/bootstrapTheme.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/School.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container">
+        <h1 class="p-5 text-center">Login</h1>
+        <form method="post" class="form-group">
+            
+            <div class="mb-3">
+                <label asp-for="Username" class="form-label"></label>
+                <input asp-for="Username" class="form-control" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label"></label>
+                <input asp-for="Password" type="password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+
+            </div>
+        
+            <button type="submit" class="btn btn-primary form-control">Login</button>
+            <span>Doesn't' have an account?</span><a asp-controller="Account" asp-action="Signup"> Login</a>
+        </form>
+    </div>
+</body>
+<
+</html>

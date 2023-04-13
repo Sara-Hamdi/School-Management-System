@@ -1,0 +1,17 @@
+﻿@model Teacher
+<h1 class="text-center">Delete Teacher</h1>
+<form method="post" asp-action="DeletePost" class="form-group p-5">
+    <input asp-for="Id" hidden />
+    <div class="mb-3">
+    <label asp-for="FirstName" class="form-label"></label>
+    <input asp-for="FirstName" class="form-control"/>
+    </div>
+    <div class="mb-3">
+    <label asp-for="LastName" class="form-label"></label>
+    <input asp-for="LastName" class="form-control"/>
+    </div>
+    <button type="submit" class="btn btn-info form-control">Delete</button>
+
+
+
+</form>
