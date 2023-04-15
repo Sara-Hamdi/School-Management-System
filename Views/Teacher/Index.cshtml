@@ -1,6 +1,14 @@
 ﻿@model List<Teacher>
 <a asp-controller="Teacher" asp-action="Create" class="btn btn-outline-success">Add New Teacher</a>
 <h1 class="text-center">Teachers</h1>
+<form method="get" asp-controller="Teacher" asp-action="Index">
+    <label>Name : </label><input name="searchString"/>
+    <label>Subject : </label><input name="subject" />
+    <input type="submit" value="Search"/>
+    <input type="submit" value="All" asp-action="Index" />
+</form>
+
+
 <table class="table">
   <thead>
       <tr class="table-row">
@@ -32,7 +40,8 @@
                 <td>
                     @teacher.subject
                 </td>
-                <td><a class="btn btn-success">Edit</a>
+                <td>
+                    <a asp-controller="Teacher" asp-action="Edit" asp-route-id="@teacher.Id" class="btn btn-success">Edit</a>
                     <a asp-controller="Teacher" asp-action="Delete" asp-route-id="@teacher.Id" class="btn btn-danger">Delete</a>
                     
                 </td>

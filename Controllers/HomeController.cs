@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using School.Data;
 using School.Models;
 using System.Diagnostics;
 
@@ -7,14 +8,18 @@ namespace School.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ApplicationDbContext _db;
+        [ActivatorUtilitiesConstructor]
+        public HomeController(ILogger<HomeController> logger,ApplicationDbContext db)
         {
             _logger = logger;
+            _db = db;
         }
 
         public IActionResult Index()
         {
+            ViewData["numOfStudents"] = _db.student.ToList().Count;
+            ViewData["numOfTeachers"] = _db.teacher.ToList().Count;
             return View();
         }
 

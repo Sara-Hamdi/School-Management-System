@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.EntityFrameworkCore;
 using School.Data;
 using School.Models;
 
@@ -7,16 +9,30 @@ namespace School.Controllers
     public class StudentController : Controller
     {
         private readonly ApplicationDbContext _db;
+        
         public StudentController(ApplicationDbContext db)
         {
             _db = db;
         }
-        public IActionResult Index()
+        public IActionResult Index(string searchString,int batch)
         {
-            List<Student> students = _db.student.ToList();
-            return View(students);
-            
+           
+            var students = from s in _db.student select s;
+          
+            if (batch!=0)
+            {
+                students = students.Where(s => s.batch == batch);
+
+            }
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                students = students.Where(s => s.LastName == searchString || s.FirstName == searchString);
+               
+            }
+            return View(students.ToList());
         }
+        
         public IActionResult Create()
         {
 
@@ -30,6 +46,7 @@ namespace School.Controllers
             {
                 _db.student.Add(studentObj);
                 _db.SaveChanges();
+                TempData["ConfirmationMessage"] = "Customer succesfully created";
                 return RedirectToAction("Index");
             }
             else
@@ -37,7 +54,28 @@ namespace School.Controllers
                 return View(studentObj);
             }
         }
-        public IActionResult Delete(int id)
+        public IActionResult Edit(int id)
+        {
+            if(id==null)
+            {
+                return NotFound();
+            }
+            var studentObj = _db.student.Find(id);
+            return View(studentObj);
+        }
+        [HttpPost]
+        public IActionResult EditPOST(Student student)
+        {
+           if(ModelState.IsValid)
+            {
+                _db.student.Update(student);
+                _db.SaveChanges(true);
+                return RedirectToAction("Index");
+            }
+
+            return View("Edit");
+        }
+        public IActionResult Delete(int? id)
         {
             if(id==null || id==0)
             {
@@ -57,7 +95,7 @@ namespace School.Controllers
         [HttpPost]
         public IActionResult DeletePOST(int id)
         {
-            if (id == null || id == 0)
+            if (id == null)
             {
                 return NotFound();
             }

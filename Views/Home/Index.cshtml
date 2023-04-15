@@ -1,12 +1,48 @@
-﻿@model Student
-@{
+﻿@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-   <a asp-controller="Student" asp-action="Index" class="btn btn-primary">Students</a>
-   <a asp-controller="Teacher" asp-action="Index" class="btn btn-secondary">Teachers</a>
+    
+    <div class="container">
+        <div class="container row g-2">
+         
+                <div class="col-6">
+                    <div class="p-3 card text-center">
+                     <div class="d-flex justify-content-center">
+                         <img src="~/lib/Images/student.png" style="height:100px"/>
+                        <div>
+                            <h1>@ViewData["numOfStudents"]</h1>
+                            <a asp-controller="Student" asp-action="Index" class="btn btn-primary">Students</a>
+                           
+                     
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="col-6">
+                <div class="p-3 card text-center">
+                    <div class="d-flex justify-content-center">
+                    
+                        <img src="~/lib/Images/teacher1.png" style="height:100px" />
+                   
+                    <div>
+                        <h1>@ViewData["numOfTeachers"]</h1>
+                        <a asp-controller="Teacher" asp-action="Index" class="btn btn-primary">Teachers</a>
+
+                    </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+           
+
+
+        </div>
 
 </div>
-<h1></h1>
+

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using School.Data;
 using School.Models;
 
@@ -13,11 +14,19 @@ namespace School.Controllers
             _db = db;
         }
         // GET: TeacherController
-        public ActionResult Index()
+        public ActionResult Index(string searchString,string subject)
         {
-            List<Teacher> teachers = _db.teacher.ToList();
+            var teachers = from t in _db.teacher select t;
+            if(!string.IsNullOrEmpty(subject))
+            {
+                teachers = teachers.Where(t => t.subject == subject);
+            }
+            if(!string.IsNullOrEmpty(searchString))
+            {
+                teachers = teachers.Where(t => t.FirstName == searchString || t.LastName == searchString);
+            }
 
-            return View(teachers);
+            return View(teachers.ToList());
         }
 
 
@@ -50,7 +59,30 @@ namespace School.Controllers
            
           
         }
+        public IActionResult Edit(int? id)
+        {
+            if(id==null)
+            {
+                return NotFound();
+            }
+            var teacherObj = _db.teacher.Find(id);
+            if(teacherObj==null)
+            {
+                return View();
+            }
+            return View(teacherObj);
+        }
+        public IActionResult EditPOST(Teacher teacher)
+        {
+            if(ModelState.IsValid)
+            {
+                _db.Update(teacher);
+                _db.SaveChanges(true);
+                return RedirectToAction("Index");
+            }
+            return View();
 
+        }
        public IActionResult Delete(int? Id)
         {
             if(Id==0 || Id==null)

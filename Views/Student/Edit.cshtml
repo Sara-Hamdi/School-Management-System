@@ -1,0 +1,36 @@
+﻿@model Student
+<form method="post" asp-action="EditPOST" asp-controller="Student">
+    <input asp-for="Id" hidden/>
+    <div class="mb-3">
+        <label asp-for="FirstName" class="form-label"></label>
+        <input asp-for="FirstName" class="form-control"/>
+        
+    </div>
+    <div class="mb-3">
+        <label asp-for="LastName" class="form-label"></label>
+        <input asp-for="LastName" class="form-control"/>
+    </div>
+    <div class="mb-3">
+        <label asp-for="PhoneNumber" class="form-label"></label>
+        <input asp-for="PhoneNumber" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="DateOfBirth" class="form-label"></label>
+        <input asp-for="DateOfBirth" class="form-control"/>
+    </div>
+    <div class="mb-3">
+        <label asp-for="batch" class="form-label"></label>
+        <input asp-for="batch" class="form-control"/>
+    </div>
+    <button type="submit" class="btn btn-info form-control">Save</button>
+
+
+
+
+
+
+
+
+
+
+</form>

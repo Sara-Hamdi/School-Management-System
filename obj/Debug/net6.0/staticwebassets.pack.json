@@ -21,6 +21,22 @@
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
+      "Id": "F:\\Backend\\School\\wwwroot\\lib\\Images\\school.png",
+      "PackagePath": "staticwebassets\\lib\\Images\\school.png"
+    },
+    {
+      "Id": "F:\\Backend\\School\\wwwroot\\lib\\Images\\student.png",
+      "PackagePath": "staticwebassets\\lib\\Images\\student.png"
+    },
+    {
+      "Id": "F:\\Backend\\School\\wwwroot\\lib\\Images\\teacher.png",
+      "PackagePath": "staticwebassets\\lib\\Images\\teacher.png"
+    },
+    {
+      "Id": "F:\\Backend\\School\\wwwroot\\lib\\Images\\teacher1.png",
+      "PackagePath": "staticwebassets\\lib\\Images\\teacher1.png"
+    },
+    {
       "Id": "F:\\Backend\\School\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },

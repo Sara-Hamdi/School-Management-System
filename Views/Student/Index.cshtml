@@ -1,19 +1,28 @@
 ﻿@model List<Student>
-
+<div class="container">
 <div>
-
 <a asp-controller="Student" asp-action="Create" class="btn btn-outline-success text-lg-end">Add New Student</a>
-    <label>Batch</label>
-
-    <select id="batches">
-        <option value="volvo">2018</option>
-        <option value="saab">2019</option>
-        <option value="mercedes">2020</option>
-        <option value="audi">2021</option>
-    </select>
 </div>
 <h1 class="text-center">Students</h1>
-<div class="container">
+<form asp-action="Index" asp-controller="Student" method="get">
+    <div class="d-flex">
+    <div class="m-2">
+     <label>Name : </label>
+     <input type="text" name="searchString"/>
+        
+       
+    </div>
+    <div class="m-2">
+    <label>Batch : </label>
+    <input type="number" name="batch"/>
+                <input type="submit" value="search" />
+                <input type="submit" value="All" asp-action="Index" />
+    </div>
+          
+    </div>
+      
+</form>
+
   <table class="table">
       <thead>
         <tr class="d-xl-table-row">
@@ -53,7 +62,7 @@
                 <td>@student.DateOfBirth</td>
                 <td>@student.batch</td>
                 <td>
-                    <a class="btn btn-success">Edit</a>
+                    <a class="btn btn-success" asp-controller="Student" asp-action="Edit" asp-route-Id="@student.Id">Edit</a>
                     <a class="btn btn-danger" asp-controller="Student" asp-action="Delete" asp-route-Id="@student.Id">Delete</a>
                 </td>
                 
@@ -69,4 +78,3 @@
 
 
 </div>
-
