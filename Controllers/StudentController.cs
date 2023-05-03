@@ -27,8 +27,14 @@ namespace School.Controllers
 
             if (!string.IsNullOrEmpty(searchString))
             {
-                students = students.Where(s => s.LastName == searchString || s.FirstName == searchString);
+                students = students.Where(s => s.LastName.Contains(searchString)|| s.FirstName.Contains(searchString));
                
+            }
+            students.ToList();
+            if(students.Count()==0)
+            {
+                ViewData["NoResult"] = "No Result Found";
+                return View();
             }
             return View(students.ToList());
         }
@@ -46,7 +52,7 @@ namespace School.Controllers
             {
                 _db.student.Add(studentObj);
                 _db.SaveChanges();
-                TempData["ConfirmationMessage"] = "Customer succesfully created";
+               
                 return RedirectToAction("Index");
             }
             else
@@ -112,5 +118,6 @@ namespace School.Controllers
             }
 
         }
+        
     }
 }

@@ -1,4 +1,5 @@
 ﻿@model List<Student>
+
 <div class="container">
 <div>
 <a asp-controller="Student" asp-action="Create" class="btn btn-outline-success text-lg-end">Add New Student</a>
@@ -26,6 +27,9 @@
   <table class="table">
       <thead>
         <tr class="d-xl-table-row">
+                <th>
+                    Student Id
+                </th>
           <th>
                First Name
           </th>
@@ -41,9 +45,10 @@
           <th>
               Batch
           </th>
-          <th>
+          
+        <th>
 
-          </th>
+        </th>
         <th>
 
         </th>
@@ -51,27 +56,34 @@
           </tr>
      </thead>
      <tbody>
-         
-        @foreach(var student in Model)
-        {
+            @if (Model != null)
+            {
+                @foreach (var student in Model)
+                {
 
-                <tr class="d-xl-table-row">
-                <td>@student.FirstName</td>
-                <td>@student.LastName</td>
-                <td>@student.PhoneNumber</td>
-                <td>@student.DateOfBirth</td>
-                <td>@student.batch</td>
-                <td>
-                    <a class="btn btn-success" asp-controller="Student" asp-action="Edit" asp-route-Id="@student.Id">Edit</a>
-                    <a class="btn btn-danger" asp-controller="Student" asp-action="Delete" asp-route-Id="@student.Id">Delete</a>
-                </td>
-                
-               
-            </tr>
-             
-              
-            
-        }
+                    <tr class="d-xl-table-row">
+                        <td><a asp-action="Index" asp-controller="Enrollment" asp-route-Id="@student.Id">@student.Id</a></td>
+
+                        <td>@student.FirstName</td>
+                        <td>@student.LastName</td>
+                        <td>@student.PhoneNumber</td>
+                        <td>@student.DateOfBirth</td>
+                        <td>@student.batch</td>
+                        <td>
+                            <a class="btn btn-success" asp-controller="Student" asp-action="Edit" asp-route-Id="@student.Id">Edit</a>
+                            <a class="btn btn-danger" asp-controller="Student" asp-action="Delete" asp-route-Id="@student.Id">Delete</a>
+                        </td>
+
+
+                    </tr>
+
+
+                }
+            }
+            else
+            {
+                <tr class="d-xl-table-row"><h3>@ViewData["NoResult"]</h3></tr>
+            }
        
    </tbody>
 </table>

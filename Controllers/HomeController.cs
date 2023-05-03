@@ -20,6 +20,7 @@ namespace School.Controllers
         {
             ViewData["numOfStudents"] = _db.student.ToList().Count;
             ViewData["numOfTeachers"] = _db.teacher.ToList().Count;
+            ViewData["numOfSubjects"] = _db.subject.ToList().Count;
             return View();
         }
 

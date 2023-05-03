@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using School.Data;
 
@@ -11,9 +12,11 @@ using School.Data;
 namespace School.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230418153250_createEnrollmentsAndSubject")]
+    partial class createEnrollmentsAndSubject
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,31 +27,28 @@ namespace School.Migrations
 
             modelBuilder.Entity("School.Models.Enrollment", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("Grade")
+                        .HasColumnType("int");
+
                     b.Property<int>("StudentId")
-                        .HasColumnType("int")
-                        .HasColumnOrder(1);
+                        .HasColumnType("int");
 
                     b.Property<int>("SubjectId")
-                        .HasColumnType("int")
-                        .HasColumnOrder(2);
+                        .HasColumnType("int");
 
-                    b.Property<double>("FinalExam")
-                        .HasColumnType("float");
+                    b.HasKey("Id");
 
-                    b.Property<double>("FinalGrade")
-                        .HasColumnType("float");
-
-                    b.Property<double>("MidtermExam")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Practical")
-                        .HasColumnType("float");
-
-                    b.HasKey("StudentId", "SubjectId");
+                    b.HasIndex("StudentId");
 
                     b.HasIndex("SubjectId");
 
-                    b.ToTable("enrollment");
+                    b.ToTable("Enrollment");
                 });
 
             modelBuilder.Entity("School.Models.Student", b =>

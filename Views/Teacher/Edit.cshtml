@@ -1,5 +1,5 @@
 ﻿@model Teacher
-<form method="post" asp-action="EditPOST" asp-controller="Teacher">
+<form method="post" asp-action="Edit" asp-controller="Teacher">
     <input asp-for="Id" hidden />
     <div class="mb-3">
         <label asp-for="FirstName" class="form-label"></label>
@@ -20,7 +20,7 @@
     </div>
     <div class="mb-3">
         <label asp-for="subject" class="form-label"></label>
-        <input asp-for="subject" class="form-control" />
+        <select asp-items="ViewBag.subjects" asp-for="subject"></select>
     </div>
     <button type="submit" class="btn btn-info form-control">Save</button>
 

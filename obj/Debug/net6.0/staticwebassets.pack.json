@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
+      "Id": "F:\\Backend\\School\\wwwroot\\lib\\Images\\books.png",
+      "PackagePath": "staticwebassets\\lib\\Images\\books.png"
+    },
+    {
       "Id": "F:\\Backend\\School\\wwwroot\\lib\\Images\\school.png",
       "PackagePath": "staticwebassets\\lib\\Images\\school.png"
     },

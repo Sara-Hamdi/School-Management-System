@@ -1,0 +1,13 @@
+﻿@model Subject
+<form method="post" asp-action="Edit" asp-controller="Subject">
+    <input asp-for="Id" hidden/>
+    <div class="mb-3">
+    <label asp-for="Name" class="form-label"></label>
+    <input asp-for="Name" class="form-control"/>
+    </div>
+   <button type="submit">Save</button>
+
+
+
+
+</form>

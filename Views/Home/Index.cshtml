@@ -9,7 +9,7 @@
         <div class="container row g-2">
          
                 <div class="col-6">
-                    <div class="p-3 card text-center">
+                <div class="p-3 card text-center"  style="background-color:aquamarine">
                      <div class="d-flex justify-content-center">
                          <img src="~/lib/Images/student.png" style="height:100px"/>
                         <div>
@@ -22,7 +22,7 @@
                     </div>
                 </div>
             <div class="col-6">
-                <div class="p-3 card text-center">
+                <div class="p-3 card text-center" style="background-color:burlywood">
                     <div class="d-flex justify-content-center">
                     
                         <img src="~/lib/Images/teacher1.png" style="height:100px" />
@@ -35,6 +35,20 @@
                     </div>
                     </div>
                 </div>
+
+            <div class="col-6">
+                <div class="p-3 card text-center" style="background-color:darkgoldenrod">
+                    <div class="d-flex justify-content-center">
+                        <img src="~/lib/Images/books.png" style="height:100px" />
+                        <div>
+                            <h1>@ViewData["numOfSubjects"]</h1>
+                            <a asp-controller="Subject" asp-action="Index" class="btn btn-primary">Subjects</a>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
             </div>
 
 

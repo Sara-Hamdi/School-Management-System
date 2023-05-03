@@ -1,0 +1,27 @@
+﻿<h1 class="p-5 text-center">Subject</h1>
+<form method="post" class="form-group">
+    <input  value="@ViewData["StudentID"]" name="id" hidden/>
+    <div class="mb-3">
+        <label class="form-label">Subject: </label>
+        <select asp-items="ViewBag.SubjectID" name="SubjectID" class="form-control"></select>
+
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Practical Marks</label>
+        <input class="form-control" name="practical" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Midterm Marks</label>
+        <input class="form-control" name="midtermExam" />
+    </div>
+    <div class="mb-3">
+        <label  class="form-label">Final Exam Marks</label>
+        <input  class="form-control" name="finalExam"/>
+    </div>
+   
+  
+    <button type="submit" class="btn btn-primary form-control">Add</button>
+</form>
+
+
+

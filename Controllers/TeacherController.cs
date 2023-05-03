@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using School.Data;
 using School.Models;
@@ -14,7 +16,7 @@ namespace School.Controllers
             _db = db;
         }
         // GET: TeacherController
-        public ActionResult Index(string searchString,string subject)
+        public IActionResult Index(string searchString,string subject)
         {
             var teachers = from t in _db.teacher select t;
             if(!string.IsNullOrEmpty(subject))
@@ -23,7 +25,7 @@ namespace School.Controllers
             }
             if(!string.IsNullOrEmpty(searchString))
             {
-                teachers = teachers.Where(t => t.FirstName == searchString || t.LastName == searchString);
+                teachers = teachers.Where(t => t.FirstName.Contains(searchString) || t.LastName.Contains(searchString));
             }
 
             return View(teachers.ToList());
@@ -31,15 +33,18 @@ namespace School.Controllers
 
 
         // GET: TeacherController/Create
-        public ActionResult Create()
+        public IActionResult Create()
         {
+            var subject = from s in _db.subject select s.Name;
+            ViewData["subjectID"] =new SelectList(subject);
+
             return View();
         }
 
         // POST: TeacherController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Teacher teacher)
+        public IActionResult Create(Teacher teacher)
         {
             try
             {
@@ -70,9 +75,12 @@ namespace School.Controllers
             {
                 return View();
             }
+            var subjects = from s in _db.subject select s.Name;
+            ViewData["subjects"] = new SelectList(subjects);
             return View(teacherObj);
         }
-        public IActionResult EditPOST(Teacher teacher)
+        [HttpPost]
+        public IActionResult Edit(Teacher teacher)
         {
             if(ModelState.IsValid)
             {
@@ -80,7 +88,9 @@ namespace School.Controllers
                 _db.SaveChanges(true);
                 return RedirectToAction("Index");
             }
-            return View();
+            var subjects = from s in _db.subject select s.Name;
+            ViewData["subjects"] = new SelectList(subjects);
+            return View(teacher);
 
         }
        public IActionResult Delete(int? Id)
@@ -92,6 +102,7 @@ namespace School.Controllers
 
             }
             var TeacherObj = _db.teacher.Find(Id);
+         
             if(TeacherObj==null)
             {
                 return NotFound();
@@ -101,7 +112,7 @@ namespace School.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult DeletePost(int Id)
-       {
+        {
             var TeacherObj = _db.teacher.Find(Id);
             if (TeacherObj== null)
             {

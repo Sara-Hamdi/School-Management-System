@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "0/kCyTDrAv1m7qamfwxU74t9e15OeVyZJ90pEA7sWFw=",
+  "Hash": "QxuLjz9OQxE/NJZe3xuQkUpCcnYJJT2W6nt7+7ZHLxc=",
   "Source": "School",
   "BasePath": "_content/School",
   "Mode": "Default",
@@ -882,6 +882,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
+    },
+    {
+      "Identity": "F:\\Backend\\School\\wwwroot\\lib\\Images\\books.png",
+      "SourceId": "School",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\Backend\\School\\wwwroot\\",
+      "BasePath": "_content/School",
+      "RelativePath": "lib/Images/books.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\Images\\books.png"
     },
     {
       "Identity": "F:\\Backend\\School\\wwwroot\\lib\\Images\\school.png",

@@ -1,0 +1,61 @@
+﻿@model List<Enrollment>
+<div class="container">
+
+    <h1 class="text-center">Grades</h1>
+    <a asp-controller="Enrollment" asp-action="Create" asp-route-Id="@ViewData["studentid"]" class="btn btn-outline-success">Add New Subject</a>
+
+
+    <table class="table">
+        <thead>
+            <tr class="d-xl-table-row">
+                <th>
+                  Subject Name
+                </th>
+                <th>
+                    Practical
+                </th>
+                <th>
+                    Midterm
+                </th>
+                <th>
+                    Final Exam
+                </th>
+
+                <th>
+                    Final Grade
+                </th>
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+           
+                @foreach(var enrol in Model)
+                {
+                <tr class="d-xl-table-row">
+                <td>
+                    @enrol.Subject.Name
+                </td>
+                <td>
+                    @enrol.Practical
+                </td>
+                <td>
+                    @enrol.MidtermExam
+                </td>
+                <td>
+                    @enrol.FinalExam
+                </td>
+                    <td>
+                        @enrol.FinalGrade
+                    </td>
+                </tr>
+                }
+           
+                
+            
+        </tbody>
+    </table>
+
+
+</div>

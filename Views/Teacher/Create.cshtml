@@ -19,7 +19,9 @@
     </div>
     <div class="mb-3">
         <label asp-for="subject" class="form-label"></label>
-        <input asp-for="subject" class="form-control"/>
+        <select asp-for="subject" asp-items="ViewBag.subjectID" class="form-control">
+            <option value="" disabled selected>Select subject</option>
+        </select>
     </div>
     <button type="submit" class="btn btn-primary form-control">Add</button>
 

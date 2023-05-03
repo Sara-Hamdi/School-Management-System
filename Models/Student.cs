@@ -13,6 +13,7 @@ namespace School.Models
         [Required]
         public string? LastName { get; set; }
         [DisplayName("Date Of Birth")]
+        [DataType(DataType.Date)]
         [Required]
         public DateTime DateOfBirth { get; set; }
         [DisplayName("Phone Number")]
@@ -20,6 +21,11 @@ namespace School.Models
         public string? PhoneNumber { get; set; }
         [Required]
         public int batch { get; set; }
+
+        public ICollection<Enrollment> Enrollments { get; set; }
+
+
+
 
 
     }
