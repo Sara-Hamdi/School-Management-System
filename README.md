@@ -4,8 +4,8 @@ The website is built using the ASP.NET MVC framework, which provides a powerful 
 
 Getting Started:
 
-1-Install Visual Studio on your machine.
-2-Clone the repository from Github.
+<h2> 1-Install Visual Studio on your machine.</h2>
+<h2> 2-Clone the repository from Github.</h2>
 3-Open the solution file in Visual Studio.
 4-Build the solution to ensure that all dependencies are installed.
 5-Run the application to start the website.
