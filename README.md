@@ -12,9 +12,9 @@ Getting Started:
 
 Features:
 
--Student Management: Add, edit,search(by name and batch) and delete student records. View student information such as 
+1-Student Management: Add, edit,search(by name and batch) and delete student records. View student information such as 
  grades,batch and more.
--Teacher Management: Add, edit,search(by name and subject) and delete teacher records. View teacher information such as subject and 
+2-Teacher Management: Add, edit,search(by name and subject) and delete teacher records. View teacher information such as subject and 
  phone number
--Subject Management: Add, edit and delete subject records. Assign courses to teachers.
--Grade Management: Record student grades for each subject and view grade reports.
+3-Subject Management: Add, edit and delete subject records. Assign courses to teachers.
+4-Grade Management: Record student grades for each subject and view grade reports.
