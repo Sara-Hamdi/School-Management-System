@@ -1,4 +1,4 @@
-<h2>Welcome to the School Management Website built with Html, Bootstrap,Entity framework, ASP.NET Core and MVC!</h2>
+<h3 style="color:red">Welcome to the School Management Website built with Html, Bootstrap,Entity framework, ASP.NET Core and MVC!</h3>
 <h4>This website is designed to help schools manage their operations efficiently.</h4>
 <h4>The website is built using the ASP.NET MVC framework, which provides a powerful and scalable platform for building web applications.</h4>
 
