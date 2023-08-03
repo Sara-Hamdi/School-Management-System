@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using School.Data;
@@ -6,6 +7,7 @@ using School.Models;
 
 namespace School.Controllers
 {
+    [Authorize]
     public class StudentController : Controller
     {
         private readonly ApplicationDbContext _db;
@@ -72,14 +74,19 @@ namespace School.Controllers
         [HttpPost]
         public IActionResult EditPOST(Student student)
         {
-           if(ModelState.IsValid)
+            try
             {
+
+            
                 _db.student.Update(student);
-                _db.SaveChanges(true);
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
-            return View("Edit");
+            catch
+            {
+                return View("Edit");
+            }
+           
         }
         public IActionResult Delete(int? id)
         {

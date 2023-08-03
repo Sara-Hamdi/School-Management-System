@@ -22,7 +22,7 @@ namespace School.Models
         [Required]
         public int batch { get; set; }
 
-        public ICollection<Enrollment> Enrollments { get; set; }
+        public ICollection<Enrollment>? Enrollments { get; set; }
 
 
 

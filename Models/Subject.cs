@@ -9,6 +9,6 @@ namespace School.Models
         [Required]
         public string Name { get; set; }
 
-        public ICollection<Enrollment> Enrollments { get; set; }
+        public ICollection<Enrollment>? Enrollments { get; set; }
     }
 }

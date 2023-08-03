@@ -23,15 +23,31 @@ namespace School.Controllers
         [HttpPost]
         public IActionResult Register(UserAccount user)
         {
-            if(ModelState.IsValid)
-            {
-                _db.userAccount.Add(user);
-                _db.SaveChanges(true);
-                ModelState.Clear();
-                return RedirectToAction("Index", "Home");
-            }
 
-            return View();
+            var users = from userObj in _db.userAccount select userObj;
+                var userExist = users.Where(u => u.Email == user.Email);
+                if (userExist != null)
+                {
+                    ViewData["result"] = "this email aleardy exist";
+
+                    return View(user);
+
+                }
+                if (ModelState.IsValid)
+                {
+                    _db.userAccount.Add(user);
+                    _db.SaveChanges(true);
+                    ModelState.Clear();
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    return View(user);
+                }
+            
+            
+
+
         }
         public IActionResult Login()
         {
@@ -42,14 +58,18 @@ namespace School.Controllers
         {
             if(ModelState.IsValid)
             {
-              var Loggedinuser=  _db.userAccount.Single(u => u.Username ==username && u.Password == password);
-                if (Loggedinuser != null)
+                var users = from user in _db.userAccount select user;
+              var Loggedinuser=  users.Where(u => u.Username ==username && u.Password == password);
+                if (Loggedinuser == null)
                 {
-                    return RedirectToAction("Index","Home");
+
+                    ViewData["error"] = "Invalid username or password";
+                    return View();
+                 
                 }
                 else
                 {
-                    return View();
+                    return RedirectToAction("Index", "Home");
                 }
 
             }

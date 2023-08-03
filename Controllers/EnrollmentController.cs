@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using School.Data;
@@ -8,6 +9,7 @@ using System.Diagnostics;
 
 namespace School.Controllers
 {
+    [Authorize]
     public class EnrollmentController : Controller
     {
         private readonly ApplicationDbContext _db;

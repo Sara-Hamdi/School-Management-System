@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using School.Data;
 using School.Models;
 
 namespace School.Controllers
 {
+    [Authorize]
     public class SubjectController : Controller
     {
         private readonly ApplicationDbContext _db;
@@ -56,8 +58,9 @@ namespace School.Controllers
         {
             try
             {
-                _db.subject.Update(subject);
-                _db.SaveChanges(true);
+                
+                 _db.subject.Update(subject);
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
@@ -83,7 +86,6 @@ namespace School.Controllers
                 return View(subjectObj);
             }
             [HttpPost]
-            [ValidateAntiForgeryToken]
             public IActionResult DeletePost(int Id)
             {
                 var subjectObj = _db.subject.Find(Id);

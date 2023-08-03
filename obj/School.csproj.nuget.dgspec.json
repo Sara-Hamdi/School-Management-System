@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Backend\\School\\School.csproj": {}
+    "F:\\Backend\\schoolManagement\\School-Management-System\\School.csproj": {}
   },
   "projects": {
-    "F:\\Backend\\School\\School.csproj": {
+    "F:\\Backend\\schoolManagement\\School-Management-System\\School.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Backend\\School\\School.csproj",
+        "projectUniqueName": "F:\\Backend\\schoolManagement\\School-Management-System\\School.csproj",
         "projectName": "School",
-        "projectPath": "F:\\Backend\\School\\School.csproj",
+        "projectPath": "F:\\Backend\\schoolManagement\\School-Management-System\\School.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "F:\\Backend\\School\\obj\\",
+        "outputPath": "F:\\Backend\\schoolManagement\\School-Management-System\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -44,6 +44,18 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNet.Identity.EntityFramework": {
+              "target": "Package",
+              "version": "[2.2.4, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.20, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[6.0.20, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.4, )"
@@ -60,7 +72,7 @@
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[6.0.13, )"
+              "version": "[6.0.15, )"
             }
           },
           "imports": [
