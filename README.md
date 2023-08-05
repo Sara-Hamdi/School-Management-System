@@ -2,14 +2,14 @@ Welcome to the School Management Website built with Html, <br>Bootstrap,Entity f
 This website is designed to help schools manage their operations efficiently.
 he website is built using the ASP.NET MVC framework, which provides a powerful and scalable platform for building web applications.
 
-## Getting Started
+# Getting Started
 - Install Visual Studio on your machine.
 - Clone the repository from Github.
 - Open the solution file in Visual Studio.
 - Build the solution to ensure that all dependencies are installed.
 - Run the application to start the website.
 
-## Features
+# Features
 - Student Management: Add, edit,search(by name and batch) and delete student records. View student information such as 
  grades,batch and more.</h5>
 - Teacher Management: Add, edit,search(by name and subject) and delete teacher records. View teacher information such as subject and 
